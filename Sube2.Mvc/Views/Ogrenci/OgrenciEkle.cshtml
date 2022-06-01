@@ -1,0 +1,18 @@
+﻿@model Ogrenci
+@{
+    ViewData["Title"] = "OgrenciEkle";
+}
+
+<h1>Ogrenci Ekle</h1>
+
+<form asp-controller="Ogrenci" asp-action="OgrenciEkle" method="post">
+    <label>Ad</label>
+    <input type="text" asp-for="Ad" />
+    <label>Soyad</label>
+    @Html.TextBoxFor(o=>o.Soyad)
+    <label>Numara</label>
+    <input type="number" name="Numara" />
+
+    <input type="submit" value="Kaydet" />
+
+</form>
