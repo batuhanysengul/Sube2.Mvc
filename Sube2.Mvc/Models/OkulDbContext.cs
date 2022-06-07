@@ -8,7 +8,7 @@ namespace Sube2.Mvc.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=OkulDbMvcSube2;Integrated Security=true");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=OkulDbMvcSube3;Integrated Security=true");
         }       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

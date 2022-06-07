@@ -41,5 +41,43 @@ namespace Sube2.Mvc.Controllers
             }
             return View(lst);
         }
+
+        //--------------------------------------------------------------------------------------/
+         
+        [HttpPost]
+        public IActionResult OgrenciSil(int id)
+        {
+            if (id != 0)
+            {
+                using (var ctx = new OkulDbContext())
+                {
+                    var ogrenci = ctx.Ogrenciler.Find(id);
+                    ctx.Remove(ogrenci);
+
+                    ctx.SaveChanges();
+                }
+            }
+            return RedirectToAction("OgrenciListe");
+        }
+
+
+        public IActionResult OgrenciDuzenle(int id)
+        {
+            using (var ctx = new OkulDbContext())
+            {
+                return View(ctx.Ogrenciler.Find(id));
+            }
+        }
+
+        [HttpPost]
+        public IActionResult OgrenciDuzenle(Ogrenci ogrenci)
+        {
+            using (var ctx = new OkulDbContext())
+            {
+                ctx.Ogrenciler.Update(ogrenci);
+                ctx.SaveChanges();
+            }
+            return RedirectToAction("OgrenciListe");
+        }
     }
 }
