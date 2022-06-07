@@ -43,8 +43,7 @@ namespace Sube2.Mvc.Controllers
         }
 
         //--------------------------------------------------------------------------------------/
-         
-        [HttpPost]
+        [HttpPost] 
         public IActionResult OgrenciSil(int id)
         {
             if (id != 0)
@@ -52,8 +51,7 @@ namespace Sube2.Mvc.Controllers
                 using (var ctx = new OkulDbContext())
                 {
                     var ogrenci = ctx.Ogrenciler.Find(id);
-                    ctx.Remove(ogrenci);
-
+                    ctx.Ogrenciler.Remove(ogrenci);
                     ctx.SaveChanges();
                 }
             }
@@ -65,7 +63,7 @@ namespace Sube2.Mvc.Controllers
         {
             using (var ctx = new OkulDbContext())
             {
-                return View(ctx.Ogrenciler.Find(id));
+                return View(ctx.Ogrenciler.Find(id)); //Ogrenci idye göre düzenleme viewına götürür
             }
         }
 

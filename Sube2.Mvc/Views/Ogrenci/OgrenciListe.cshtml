@@ -24,10 +24,12 @@
 				<td>
 					<a class="btn btn-primary" href="/Ogrenci/OgrenciDuzenle/@item.Ogrenciid">Düzenle</a>
 
+
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-@item.Ogrenciid">Sil</button>
-					<form action="/Ogrenci/OgrenciSil" method="post" onclick="return confirm('Silmek istediğinizden emin misiniz?')">
+
+					<form action="/Ogrenci/OgrenciSil" method="post">
 						<input type="hidden" name="id" value="@item.Ogrenciid" />
-						<input class="btn btn-sm btn-primary text-white" type="submit" value="Öğrenciyi sil" />
+						<input class="btn btn-sm btn-primary text-white" type="submit" value="Öğrenciyi sil" onclick="return confirm('Silmek istediğinizden emin misiniz?')"/>
 					</form>
 
 				</td>
